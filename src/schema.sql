@@ -16,7 +16,7 @@
 
 -- TODO: Create the following tables:
 -- 1. locations
-CREATE TABLE locations (
+CREATE TABLE IF NOT EXISTS locations (
     location_id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
     address TEXT NOT NULL,
@@ -25,7 +25,29 @@ CREATE TABLE locations (
     opening_hours TEXT
 );
 -- 2. members
+CREATE TABLE IF NOT EXISTS members (
+    member_id INTEGER PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone_number TEXT,
+    date_of_birth DATE,
+    join_date DATE NOT NULL,
+    emergency_contact_name TEXT,
+    emergency_contact_phone TEXT
+);
 -- 3. staff
+CREATE TABLE IF NOT EXISTS staff (
+    staff_id INTEGER PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone_number TEXT,
+    position TEXT CHECK(position IN ('Trainer', 'Manager', 'Receptionist')),
+    hire_date DATE NOT NULL,
+    location_id INTEGER,
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
+);
 -- 4. equipment
 -- 5. classes
 -- 6. class_schedule
