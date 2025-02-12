@@ -16,6 +16,14 @@
 
 -- TODO: Create the following tables:
 -- 1. locations
+CREATE TABLE locations (
+    location_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    address TEXT NOT NULL,
+    phone_number TEXT,
+    email TEXT,
+    opening_hours TEXT
+);
 -- 2. members
 -- 3. staff
 -- 4. equipment
