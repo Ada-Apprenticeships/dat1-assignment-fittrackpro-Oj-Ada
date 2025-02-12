@@ -49,6 +49,16 @@ CREATE TABLE IF NOT EXISTS staff (
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 -- 4. equipment
+CREATE TABLE IF NOT EXISTS equipment (
+    equipment_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    type TEXT CHECK(type IN ('Cardio', 'Strength')),
+    purchase_date DATE NOT NULL,
+    last_maintenance_date DATE,
+    next_maintenance_date DATE,
+    location_id INTEGER,
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
+);
 -- 5. classes
 -- 6. class_schedule
 -- 7. memberships
