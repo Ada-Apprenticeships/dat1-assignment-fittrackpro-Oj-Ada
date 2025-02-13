@@ -90,6 +90,15 @@ CREATE TABLE IF NOT EXISTS memberships (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 -- 8. attendance
+CREATE TABLE attendance (
+    attendance_id INTEGER PRIMARY KEY,
+    member_id INTEGER NOT NULL,
+    location_id INTEGER NOT NULL,
+    check_in_time DATETIME NOT NULL,
+    check_out_time DATETIME,
+    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (location_id) REFERENCES locations(location_id)
+);
 -- 9. class_attendance
 -- 10. payments
 -- 11. personal_training_sessions
