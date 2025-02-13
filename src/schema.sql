@@ -80,6 +80,15 @@ CREATE TABLE IF NOT EXISTS class_schedule (
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
 -- 7. memberships
+CREATE TABLE IF NOT EXISTS memberships (
+    membership_id INTEGER PRIMARY KEY,
+    member_id INTEGER NOT NULL,
+    type TEXT NOT NULL CHECK(type IN ('Basic', 'Premium')),
+    start_date DATE NOT NULL,
+    end_date DATE,
+    status TEXT,
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+);
 -- 8. attendance
 -- 9. class_attendance
 -- 10. payments
