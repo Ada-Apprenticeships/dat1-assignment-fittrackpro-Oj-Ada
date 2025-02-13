@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS equipment (
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 -- 5. classes
-CREATE TABLE classes (
+CREATE TABLE IF NOT EXISTS classes (
     class_id INTEGER PRIMARY KEY,
     name TEXT NOT NULL,
     description TEXT,
@@ -70,6 +70,15 @@ CREATE TABLE classes (
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 -- 6. class_schedule
+CREATE TABLE IF NOT EXISTS class_schedule (
+    schedule_id INTEGER PRIMARY KEY,
+    class_id INTEGER NOT NULL,
+    staff_id INTEGER NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    FOREIGN KEY (class_id) REFERENCES classes(class_id),
+    FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
+);
 -- 7. memberships
 -- 8. attendance
 -- 9. class_attendance
