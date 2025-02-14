@@ -18,6 +18,7 @@ SELECT * FROM members WHERE member_id = 5;
 -- TODO: Write a query to update a member's contact information
 
 -- 3. Count total number of members
+SELECT COUNT(*) AS total_members FROM members;
 -- TODO: Write a query to count the total number of members
 
 -- 4. Find member with the most class registrations
