@@ -24,6 +24,10 @@ HAVING available_spots > 0;
 -- TODO: Write a query to find available classes for a specific date
 
 -- 3. Register a member for a class
+INSERT INTO class_attendance (schedule_id, member_id, attendance_status)
+SELECT schedule_id, 11 AS member_id, 'Registered' AS attendance_status
+FROM class_schedule
+WHERE class_id = 3 AND start_time LIKE '2025-02-01%';
 -- TODO: Write a query to register a member for a class
 
 -- 4. Cancel a class registration
