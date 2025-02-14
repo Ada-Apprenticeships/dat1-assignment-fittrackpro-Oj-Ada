@@ -7,6 +7,20 @@
 -- Membership Management Queries
 
 -- 1. List all active memberships
+SELECT 
+    m.member_id, 
+    m.first_name, 
+    m.last_name, 
+    ms.type AS membership_type, 
+    ms.start_date, 
+    ms.end_date, 
+    ms.status
+FROM 
+    members m
+JOIN 
+    memberships ms ON m.member_id = ms.member_id
+WHERE 
+    ms.status = 'Active';
 -- TODO: Write a query to list all active memberships
 
 -- 2. Calculate the average duration of gym visits for each membership type
