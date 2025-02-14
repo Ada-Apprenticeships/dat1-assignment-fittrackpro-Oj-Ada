@@ -12,6 +12,9 @@ VALUES (7, 1, datetime('now'), NULL);
 -- TODO: Write a query to record a member's gym visit
 
 -- 2. Retrieve a member's attendance history
+SELECT check_in_time, check_out_time, location_id
+FROM attendance
+WHERE member_id = 5;
 -- TODO: Write a query to retrieve a member's attendance history
 
 -- 3. Find the busiest day of the week based on gym visits
