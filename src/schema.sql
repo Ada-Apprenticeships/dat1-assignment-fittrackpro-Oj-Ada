@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS memberships (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 -- 8. attendance
-CREATE TABLE attendance (
+CREATE TABLE IF NOT EXISTS attendance (
     attendance_id INTEGER PRIMARY KEY,
     member_id INTEGER NOT NULL,
     location_id INTEGER NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE attendance (
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
 );
 -- 9. class_attendance
-CREATE TABLE class_attendance (
+CREATE TABLE IF NOT EXISTS class_attendance (
     class_attendance_id INTEGER PRIMARY KEY,
     schedule_id INTEGER NOT NULL,
     member_id INTEGER NOT NULL,
@@ -109,7 +109,15 @@ CREATE TABLE class_attendance (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 -- 10. payments
-
+CREATE TABLE IF NOT EXISTS payments (
+    payment_id INTEGER PRIMARY KEY,
+    member_id INTEGER NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    payment_date DATE NOT NULL,
+    payment_method TEXT CHECK(payment_method IN ('Credit Card', 'Bank Transfer', 'PayPal', 'Cash')),
+    payment_type TEXT CHECK(payment_type IN ('Monthly membership fee', 'Day pass')),
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+);
 -- 11. personal_training_sessions
 -- 12. member_health_metrics
 -- 13. equipment_maintenance_log
