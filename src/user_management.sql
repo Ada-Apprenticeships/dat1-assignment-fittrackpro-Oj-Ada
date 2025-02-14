@@ -39,4 +39,7 @@ LIMIT 1;
 -- TODO: Write a query to find the member with the least class registrations
 
 -- 6. Calculate the percentage of members who have attended at least one class
+SELECT (COUNT(DISTINCT member_id) * 100.0 / (SELECT COUNT(*) FROM members)) AS percentage_attended
+FROM class_attendance
+WHERE attendance_status = 'Attended';
 -- TODO: Write a query to calculate the percentage of members who have attended at least one class
