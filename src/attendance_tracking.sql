@@ -39,4 +39,20 @@ LIMIT 1;
 -- TODO: Write a query to find the busiest day of the week based on gym visits
 
 -- 4. Calculate the average daily attendance for each location
+SELECT 
+    l.name AS location_name, 
+    ROUND(AVG(daily_visits), 1) AS avg_daily_attendance
+FROM (
+    SELECT 
+        a.location_id, 
+        date(a.check_in_time) AS visit_date, 
+        COUNT(*) AS daily_visits
+    FROM 
+        attendance a
+    GROUP BY 
+        a.location_id, visit_date
+) AS daily_counts
+JOIN locations l ON daily_counts.location_id = l.location_id
+GROUP BY 
+    daily_counts.location_id;
 -- TODO: Write a query to calculate the average daily attendance for each location
