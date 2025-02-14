@@ -30,6 +30,12 @@ LIMIT 1;
 -- TODO: Write a query to find the member with the most class registrations
 
 -- 5. Find member with the least class registrations
+SELECT member_id, COUNT(*) AS registration_count
+FROM class_attendance
+GROUP BY member_id
+HAVING registration_count > 0
+ORDER BY registration_count ASC
+LIMIT 1;
 -- TODO: Write a query to find the member with the least class registrations
 
 -- 6. Calculate the percentage of members who have attended at least one class
