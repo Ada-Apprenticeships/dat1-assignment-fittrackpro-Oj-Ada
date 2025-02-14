@@ -119,6 +119,17 @@ CREATE TABLE IF NOT EXISTS payments (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 -- 11. personal_training_sessions
+CREATE TABLE personal_training_sessions (
+    session_id INTEGER PRIMARY KEY,
+    member_id INTEGER NOT NULL,
+    staff_id INTEGER NOT NULL,
+    session_date DATE NOT NULL,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    notes TEXT,
+    FOREIGN KEY (member_id) REFERENCES members(member_id),
+    FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
+);
 -- 12. member_health_metrics
 -- 13. equipment_maintenance_log
 
