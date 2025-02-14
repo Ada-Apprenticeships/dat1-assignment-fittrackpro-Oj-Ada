@@ -109,6 +109,7 @@ CREATE TABLE class_attendance (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 -- 10. payments
+
 -- 11. personal_training_sessions
 -- 12. member_health_metrics
 -- 13. equipment_maintenance_log
