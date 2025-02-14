@@ -35,7 +35,14 @@ DELETE FROM class_attendance
 WHERE member_id = 2 AND schedule_id = 7;
 -- TODO: Write a query to cancel a class registration
 
--- 5. List top 5 most popular classes
+-- 5. List top 3 most popular classes
+SELECT c.class_id, c.name AS class_name, COUNT(ca.member_id) AS registration_count
+FROM classes c
+JOIN class_schedule cs ON c.class_id = cs.class_id
+JOIN class_attendance ca ON cs.schedule_id = ca.schedule_id
+GROUP BY c.class_id
+ORDER BY registration_count DESC
+LIMIT 3;
 -- TODO: Write a query to list top 5 most popular classes
 
 -- 6. Calculate average number of classes per member
