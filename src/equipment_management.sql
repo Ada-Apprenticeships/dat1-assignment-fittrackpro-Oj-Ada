@@ -19,4 +19,7 @@ GROUP BY type;
 -- TODO: Write a query to count equipment types in stock
 
 -- 3. Calculate average age of equipment by type (in days)
+SELECT type, ROUND(AVG(julianday('now') - julianday(purchase_date))) AS avg_age_days
+FROM equipment
+GROUP BY type;
 -- TODO: Write a query to calculate average age of equipment by type (in days)
