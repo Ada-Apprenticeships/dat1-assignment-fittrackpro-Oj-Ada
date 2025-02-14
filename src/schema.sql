@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS staff (
     last_name TEXT NOT NULL,
     email TEXT NOT NULL,
     phone_number TEXT,
-    position TEXT CHECK(position IN ('Trainer', 'Manager', 'Receptionist')),
+    position TEXT CHECK(position IN ('Trainer', 'Manager', 'Receptionist', 'Maintenance')),
     hire_date DATE NOT NULL,
     location_id INTEGER,
     FOREIGN KEY (location_id) REFERENCES locations(location_id)
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS member_health_metrics (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 -- 13. equipment_maintenance_log
-CREATE TABLE equipment_maintenance_log (
+CREATE TABLE IF NOT EXISTS equipment_maintenance_log (
     log_id INTEGER PRIMARY KEY,
     equipment_id INTEGER NOT NULL,
     maintenance_date DATE NOT NULL,
