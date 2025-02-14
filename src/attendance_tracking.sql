@@ -7,6 +7,8 @@
 -- Attendance Tracking Queries
 
 -- 1. Record a member's gym visit
+INSERT INTO attendance (member_id, location_id, check_in_time, check_out_time)
+VALUES (7, 1, datetime('now'), NULL);
 -- TODO: Write a query to record a member's gym visit
 
 -- 2. Retrieve a member's attendance history
