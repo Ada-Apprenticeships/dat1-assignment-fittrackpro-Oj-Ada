@@ -11,6 +11,10 @@ SELECT * FROM members;
 -- TODO: Write a query to retrieve all members
 
 -- 2. Update a member's contact information
+UPDATE members
+SET phone_number = '555-9876', email = 'emily.jones.updated@email.com'
+WHERE member_id = 5;
+SELECT * FROM members WHERE member_id = 5;
 -- TODO: Write a query to update a member's contact information
 
 -- 3. Count total number of members
