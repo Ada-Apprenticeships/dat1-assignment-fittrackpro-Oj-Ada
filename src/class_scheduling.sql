@@ -46,4 +46,10 @@ LIMIT 3;
 -- TODO: Write a query to list top 5 most popular classes
 
 -- 6. Calculate average number of classes per member
+SELECT ROUND(AVG(class_count), 1) AS avg_classes_per_member
+FROM (
+    SELECT member_id, COUNT(*) AS class_count
+    FROM class_attendance
+    GROUP BY member_id
+) AS member_classes;
 -- TODO: Write a query to calculate average number of classes per member
