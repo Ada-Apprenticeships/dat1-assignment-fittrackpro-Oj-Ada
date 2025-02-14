@@ -22,6 +22,11 @@ SELECT COUNT(*) AS total_members FROM members;
 -- TODO: Write a query to count the total number of members
 
 -- 4. Find member with the most class registrations
+SELECT member_id, COUNT(*) AS registration_count
+FROM class_attendance
+GROUP BY member_id
+ORDER BY registration_count DESC
+LIMIT 1;
 -- TODO: Write a query to find the member with the most class registrations
 
 -- 5. Find member with the least class registrations
