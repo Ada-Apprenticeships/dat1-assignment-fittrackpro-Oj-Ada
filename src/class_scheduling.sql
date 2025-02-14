@@ -14,6 +14,13 @@ JOIN staff s ON cs.staff_id = s.staff_id;
 -- TODO: Write a query to list all classes with their instructors
 
 -- 2. Find available classes for a specific date
+SELECT c.class_id, c.name, cs.start_time, cs.end_time, (c.capacity - COUNT(ca.member_id)) AS available_spots
+FROM classes c
+JOIN class_schedule cs ON c.class_id = cs.class_id
+LEFT JOIN class_attendance ca ON cs.schedule_id = ca.schedule_id
+WHERE cs.start_time LIKE '2025-02-01%'
+GROUP BY cs.schedule_id
+HAVING available_spots > 0;
 -- TODO: Write a query to find available classes for a specific date
 
 -- 3. Register a member for a class
