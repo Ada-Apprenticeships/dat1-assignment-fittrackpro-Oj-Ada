@@ -24,4 +24,7 @@ ORDER BY month;
 -- TODO: Write a query to calculate total revenue from membership fees for each month of the current year
 
 -- 3. Find all day pass purchases
+SELECT payment_id, amount, payment_date, payment_method
+FROM payments
+WHERE payment_type = 'Day pass';
 -- TODO: Write a query to find all day pass purchases
