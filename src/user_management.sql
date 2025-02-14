@@ -7,6 +7,7 @@
 -- User Management Queries
 
 -- 1. Retrieve all members
+SELECT * FROM members;
 -- TODO: Write a query to retrieve all members
 
 -- 2. Update a member's contact information
