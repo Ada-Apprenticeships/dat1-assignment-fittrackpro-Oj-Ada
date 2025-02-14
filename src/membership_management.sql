@@ -36,4 +36,16 @@ GROUP BY
 -- TODO: Write a query to calculate the average duration of gym visits for each membership type
 
 -- 3. Identify members with expiring memberships this year
+SELECT 
+    m.member_id, 
+    m.first_name, 
+    m.last_name, 
+    m.email, 
+    ms.end_date
+FROM 
+    memberships ms
+JOIN 
+    members m ON ms.member_id = m.member_id
+WHERE 
+    ms.end_date BETWEEN date('now') AND date('now', 'start of year', '+1 year', '-1 day');
 -- TODO: Write a query to identify members with expiring memberships this year
