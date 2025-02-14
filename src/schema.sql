@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS payments (
     FOREIGN KEY (member_id) REFERENCES members(member_id)
 );
 -- 11. personal_training_sessions
-CREATE TABLE personal_training_sessions (
+CREATE TABLE IF NOT EXISTS personal_training_sessions (
     session_id INTEGER PRIMARY KEY,
     member_id INTEGER NOT NULL,
     staff_id INTEGER NOT NULL,
@@ -131,6 +131,16 @@ CREATE TABLE personal_training_sessions (
     FOREIGN KEY (staff_id) REFERENCES staff(staff_id)
 );
 -- 12. member_health_metrics
+CREATE TABLE IF NOT EXISTS member_health_metrics (
+    metric_id INTEGER PRIMARY KEY,
+    member_id INTEGER NOT NULL,
+    measurement_date DATE NOT NULL,
+    weight DECIMAL(5, 2),
+    body_fat_percentage DECIMAL(5, 2),
+    muscle_mass DECIMAL(5, 2),
+    bmi DECIMAL(5, 2),
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+);
 -- 13. equipment_maintenance_log
 
 -- After creating the tables, you can import the sample data using:
