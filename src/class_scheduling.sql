@@ -31,6 +31,8 @@ WHERE class_id = 3 AND start_time LIKE '2025-02-01%';
 -- TODO: Write a query to register a member for a class
 
 -- 4. Cancel a class registration
+DELETE FROM class_attendance
+WHERE member_id = 2 AND schedule_id = 7;
 -- TODO: Write a query to cancel a class registration
 
 -- 5. List top 5 most popular classes
